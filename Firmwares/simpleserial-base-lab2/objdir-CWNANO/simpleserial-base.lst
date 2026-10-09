@@ -1,0 +1,416 @@
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 4
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"simpleserial-base.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "simpleserial-base.c"
+  18              		.section	.text.get_key,"ax",%progbits
+  19              		.align	1
+  20              		.global	get_key
+  21              		.syntax unified
+  22              		.code	16
+  23              		.thumb_func
+  25              	get_key:
+  26              	.LVL0:
+  27              	.LFB0:
+   1:simpleserial-base.c **** /*
+   2:simpleserial-base.c ****     This file is part of the ChipWhisperer Example Targets
+   3:simpleserial-base.c ****     Copyright (C) 2012-2017 NewAE Technology Inc.
+   4:simpleserial-base.c **** 
+   5:simpleserial-base.c ****     This program is free software: you can redistribute it and/or modify
+   6:simpleserial-base.c ****     it under the terms of the GNU General Public License as published by
+   7:simpleserial-base.c ****     the Free Software Foundation, either version 3 of the License, or
+   8:simpleserial-base.c ****     (at your option) any later version.
+   9:simpleserial-base.c **** 
+  10:simpleserial-base.c ****     This program is distributed in the hope that it will be useful,
+  11:simpleserial-base.c ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  12:simpleserial-base.c ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  13:simpleserial-base.c ****     GNU General Public License for more details.
+  14:simpleserial-base.c **** 
+  15:simpleserial-base.c ****     You should have received a copy of the GNU General Public License
+  16:simpleserial-base.c ****     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  17:simpleserial-base.c **** */
+  18:simpleserial-base.c **** 
+  19:simpleserial-base.c **** #include "hal.h"
+  20:simpleserial-base.c **** #include <stdint.h>
+  21:simpleserial-base.c **** #include <stdlib.h>
+  22:simpleserial-base.c **** 
+  23:simpleserial-base.c **** #include "simpleserial.h"
+  24:simpleserial-base.c **** 
+  25:simpleserial-base.c **** uint8_t get_key(uint8_t* k, uint8_t len)
+  26:simpleserial-base.c **** {
+  28              		.loc 1 26 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  27:simpleserial-base.c **** 	// Load key here
+  28:simpleserial-base.c **** 	return 0x00;
+  33              		.loc 1 28 2 view .LVU1
+  29:simpleserial-base.c **** }
+  34              		.loc 1 29 1 is_stmt 0 view .LVU2
+  35 0000 0020     		movs	r0, #0
+  36              	.LVL1:
+  37              		.loc 1 29 1 view .LVU3
+  38              		@ sp needed
+  39 0002 7047     		bx	lr
+  40              		.cfi_endproc
+  41              	.LFE0:
+  43              		.section	.text.get_pt,"ax",%progbits
+  44              		.align	1
+  45              		.global	get_pt
+  46              		.syntax unified
+  47              		.code	16
+  48              		.thumb_func
+  50              	get_pt:
+  51              	.LVL2:
+  52              	.LFB1:
+  30:simpleserial-base.c **** 
+  31:simpleserial-base.c **** uint8_t get_pt(uint8_t* pt, uint8_t len)
+  32:simpleserial-base.c **** {
+  53              		.loc 1 32 1 is_stmt 1 view -0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 16
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  33:simpleserial-base.c **** 	/**********************************
+  34:simpleserial-base.c **** 	* Start user-specific code here. */
+  35:simpleserial-base.c **** 	trigger_high();
+  57              		.loc 1 35 2 view .LVU5
+  32:simpleserial-base.c **** 	/**********************************
+  58              		.loc 1 32 1 is_stmt 0 view .LVU6
+  59 0000 1FB5     		push	{r0, r1, r2, r3, r4, lr}
+  60              	.LCFI0:
+  61              		.cfi_def_cfa_offset 24
+  62              		.cfi_offset 0, -24
+  63              		.cfi_offset 1, -20
+  64              		.cfi_offset 2, -16
+  65              		.cfi_offset 3, -12
+  66              		.cfi_offset 4, -8
+  67              		.cfi_offset 14, -4
+  36:simpleserial-base.c **** 
+  37:simpleserial-base.c **** 	volatile long int A = 0x2BAA;
+  38:simpleserial-base.c ****     volatile int i, j, k;
+  39:simpleserial-base.c ****     for (i=0; i<7; i++){
+  68              		.loc 1 39 11 view .LVU7
+  69 0002 0024     		movs	r4, #0
+  35:simpleserial-base.c **** 
+  70              		.loc 1 35 2 view .LVU8
+  71 0004 FFF7FEFF 		bl	trigger_high
+  72              	.LVL3:
+  37:simpleserial-base.c ****     volatile int i, j, k;
+  73              		.loc 1 37 2 is_stmt 1 view .LVU9
+  37:simpleserial-base.c ****     volatile int i, j, k;
+  74              		.loc 1 37 20 is_stmt 0 view .LVU10
+  75 0008 0D4B     		ldr	r3, .L7
+  76 000a 0193     		str	r3, [sp, #4]
+  38:simpleserial-base.c ****     for (i=0; i<7; i++){
+  77              		.loc 1 38 5 is_stmt 1 view .LVU11
+  78              		.loc 1 39 5 view .LVU12
+  79              		.loc 1 39 11 is_stmt 0 view .LVU13
+  80 000c 0294     		str	r4, [sp, #8]
+  81              	.L3:
+  82              		.loc 1 39 16 is_stmt 1 discriminator 1 view .LVU14
+  83 000e 029B     		ldr	r3, [sp, #8]
+  84 0010 062B     		cmp	r3, #6
+  85 0012 04DD     		ble	.L6
+  40:simpleserial-base.c ****         for (j=0; j<7; j++){ 
+  41:simpleserial-base.c ****         A /= 33;
+  42:simpleserial-base.c ****         } 
+  43:simpleserial-base.c ****     }
+  44:simpleserial-base.c ****     /* 
+  45:simpleserial-base.c **** 	A *= 3;
+  46:simpleserial-base.c **** 	A *= 3;
+  47:simpleserial-base.c **** 	A *= 3;
+  48:simpleserial-base.c **** 	A *= 3;
+  49:simpleserial-base.c **** 	
+  50:simpleserial-base.c **** 	A *= 3;
+  51:simpleserial-base.c **** 	A *= 3;
+  52:simpleserial-base.c **** 	A *= 3;
+  53:simpleserial-base.c **** 	A *= 3;
+  54:simpleserial-base.c **** 	A *= 3;
+  55:simpleserial-base.c **** 
+  56:simpleserial-base.c **** 	A *= 3;
+  57:simpleserial-base.c **** 	A *= 3;
+  58:simpleserial-base.c **** 	A *= 3;
+  59:simpleserial-base.c **** 	A *= 3;
+  60:simpleserial-base.c **** 	A *= 3;
+  61:simpleserial-base.c **** 	
+  62:simpleserial-base.c **** 	A *= 3;
+  63:simpleserial-base.c **** 	A *= 3;
+  64:simpleserial-base.c **** 	A *= 3;
+  65:simpleserial-base.c **** 	A *= 3;
+  66:simpleserial-base.c **** 	A *= 3;	
+  67:simpleserial-base.c ****     
+  68:simpleserial-base.c ****     A *= 3;
+  69:simpleserial-base.c **** 	A *= 3;
+  70:simpleserial-base.c **** 	A *= 3;
+  71:simpleserial-base.c **** 	A *= 3;
+  72:simpleserial-base.c **** 	A *= 3;
+  73:simpleserial-base.c **** 	
+  74:simpleserial-base.c **** 	A *= 3;
+  75:simpleserial-base.c **** 	A *= 3;
+  76:simpleserial-base.c **** 	A *= 3;
+  77:simpleserial-base.c **** 	A *= 3;
+  78:simpleserial-base.c **** 	A *= 3;
+  79:simpleserial-base.c **** 
+  80:simpleserial-base.c **** 	A *= 3;
+  81:simpleserial-base.c **** 	A *= 3;
+  82:simpleserial-base.c **** 	A *= 3;
+  83:simpleserial-base.c **** 	A *= 3;
+  84:simpleserial-base.c **** 	A *= 3;
+  85:simpleserial-base.c **** 	
+  86:simpleserial-base.c **** 	A *= 3;
+  87:simpleserial-base.c **** 	A *= 3;
+  88:simpleserial-base.c **** 	A *= 3;
+  89:simpleserial-base.c **** 	A *= 3;
+  90:simpleserial-base.c **** 	A *= 3;*/
+  91:simpleserial-base.c **** 
+  92:simpleserial-base.c ****     
+  93:simpleserial-base.c **** 
+  94:simpleserial-base.c **** 	trigger_low();
+  86              		.loc 1 94 2 view .LVU15
+  87 0014 FFF7FEFF 		bl	trigger_low
+  88              	.LVL4:
+  95:simpleserial-base.c **** 	/* End user-specific code here. *
+  96:simpleserial-base.c **** 	********************************/
+  97:simpleserial-base.c **** 	return 0x00;
+  89              		.loc 1 97 2 view .LVU16
+  98:simpleserial-base.c **** }
+  90              		.loc 1 98 1 is_stmt 0 view .LVU17
+  91 0018 0020     		movs	r0, #0
+  92 001a 04B0     		add	sp, sp, #16
+  93              		@ sp needed
+  94 001c 10BD     		pop	{r4, pc}
+  95              	.L6:
+  40:simpleserial-base.c ****         for (j=0; j<7; j++){ 
+  96              		.loc 1 40 9 is_stmt 1 view .LVU18
+  40:simpleserial-base.c ****         for (j=0; j<7; j++){ 
+  97              		.loc 1 40 15 is_stmt 0 view .LVU19
+  98 001e 0394     		str	r4, [sp, #12]
+  99              	.L4:
+  40:simpleserial-base.c ****         for (j=0; j<7; j++){ 
+ 100              		.loc 1 40 20 is_stmt 1 discriminator 1 view .LVU20
+ 101 0020 039B     		ldr	r3, [sp, #12]
+ 102 0022 062B     		cmp	r3, #6
+ 103 0024 03DD     		ble	.L5
+  39:simpleserial-base.c ****         for (j=0; j<7; j++){ 
+ 104              		.loc 1 39 21 discriminator 2 view .LVU21
+ 105 0026 029B     		ldr	r3, [sp, #8]
+ 106 0028 0133     		adds	r3, r3, #1
+ 107 002a 0293     		str	r3, [sp, #8]
+ 108 002c EFE7     		b	.L3
+ 109              	.L5:
+  41:simpleserial-base.c ****         } 
+ 110              		.loc 1 41 9 view .LVU22
+  41:simpleserial-base.c ****         } 
+ 111              		.loc 1 41 11 is_stmt 0 view .LVU23
+ 112 002e 0198     		ldr	r0, [sp, #4]
+ 113 0030 2121     		movs	r1, #33
+ 114 0032 FFF7FEFF 		bl	__aeabi_idiv
+ 115              	.LVL5:
+ 116 0036 0190     		str	r0, [sp, #4]
+  40:simpleserial-base.c ****         A /= 33;
+ 117              		.loc 1 40 25 is_stmt 1 discriminator 3 view .LVU24
+ 118 0038 039B     		ldr	r3, [sp, #12]
+ 119 003a 0133     		adds	r3, r3, #1
+ 120 003c 0393     		str	r3, [sp, #12]
+ 121 003e EFE7     		b	.L4
+ 122              	.L8:
+ 123              		.align	2
+ 124              	.L7:
+ 125 0040 AA2B0000 		.word	11178
+ 126              		.cfi_endproc
+ 127              	.LFE1:
+ 129              		.section	.text.reset,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	reset
+ 132              		.syntax unified
+ 133              		.code	16
+ 134              		.thumb_func
+ 136              	reset:
+ 137              	.LFB5:
+ 138              		.cfi_startproc
+  99:simpleserial-base.c **** 
+ 100:simpleserial-base.c **** uint8_t reset(uint8_t* x, uint8_t len)
+ 139              		.loc 1 100 9 view -0
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142              		@ link register save eliminated.
+ 143 0000 0020     		movs	r0, #0
+ 144              		@ sp needed
+ 145 0002 7047     		bx	lr
+ 146              		.cfi_endproc
+ 147              	.LFE5:
+ 149              		.section	.text.startup.main,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	main
+ 152              		.syntax unified
+ 153              		.code	16
+ 154              		.thumb_func
+ 156              	main:
+ 157              	.LFB3:
+ 101:simpleserial-base.c **** {
+ 102:simpleserial-base.c **** 	// Reset key here if needed
+ 103:simpleserial-base.c **** 	return 0x00;
+ 104:simpleserial-base.c **** }
+ 105:simpleserial-base.c **** 
+ 106:simpleserial-base.c **** #if SS_VER == SS_VER_2_1
+ 107:simpleserial-base.c **** uint8_t aes(uint8_t cmd, uint8_t scmd, uint8_t len, uint8_t *buf)
+ 108:simpleserial-base.c **** {
+ 109:simpleserial-base.c ****     uint8_t req_len = 0;
+ 110:simpleserial-base.c ****     uint8_t err = 0;
+ 111:simpleserial-base.c **** 
+ 112:simpleserial-base.c ****     if (scmd & 0x02) {
+ 113:simpleserial-base.c ****         req_len += 16;
+ 114:simpleserial-base.c ****         if (req_len > len) {
+ 115:simpleserial-base.c ****             return SS_ERR_LEN;
+ 116:simpleserial-base.c ****         }
+ 117:simpleserial-base.c ****         err = get_key(buf + req_len - 16, 16);
+ 118:simpleserial-base.c ****         if (err)
+ 119:simpleserial-base.c ****             return err;
+ 120:simpleserial-base.c ****     }
+ 121:simpleserial-base.c ****     if (scmd & 0x01) {
+ 122:simpleserial-base.c ****         req_len += 16;
+ 123:simpleserial-base.c ****         if (req_len > len) {
+ 124:simpleserial-base.c ****             return SS_ERR_LEN;
+ 125:simpleserial-base.c ****         }
+ 126:simpleserial-base.c ****         err = get_pt(buf + req_len - 16, 16);
+ 127:simpleserial-base.c ****         if (err)
+ 128:simpleserial-base.c ****             return err;
+ 129:simpleserial-base.c ****     }
+ 130:simpleserial-base.c **** 
+ 131:simpleserial-base.c ****     if (len != req_len) {
+ 132:simpleserial-base.c ****         return SS_ERR_LEN;
+ 133:simpleserial-base.c ****     }
+ 134:simpleserial-base.c **** 
+ 135:simpleserial-base.c ****     return 0x00;
+ 136:simpleserial-base.c **** 
+ 137:simpleserial-base.c **** }
+ 138:simpleserial-base.c **** #endif
+ 139:simpleserial-base.c **** 
+ 140:simpleserial-base.c **** int main(void)
+ 141:simpleserial-base.c **** {
+ 158              		.loc 1 141 1 view -0
+ 159              		.cfi_startproc
+ 160              		@ Volatile: function does not return.
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142:simpleserial-base.c ****     platform_init();
+ 163              		.loc 1 142 5 view .LVU27
+ 141:simpleserial-base.c ****     platform_init();
+ 164              		.loc 1 141 1 is_stmt 0 view .LVU28
+ 165 0000 10B5     		push	{r4, lr}
+ 166              	.LCFI1:
+ 167              		.cfi_def_cfa_offset 8
+ 168              		.cfi_offset 4, -8
+ 169              		.cfi_offset 14, -4
+ 170              		.loc 1 142 5 view .LVU29
+ 171 0002 FFF7FEFF 		bl	platform_init
+ 172              	.LVL6:
+ 143:simpleserial-base.c **** 	init_uart();
+ 173              		.loc 1 143 2 is_stmt 1 view .LVU30
+ 174 0006 FFF7FEFF 		bl	init_uart
+ 175              	.LVL7:
+ 144:simpleserial-base.c **** 	trigger_setup();
+ 176              		.loc 1 144 2 view .LVU31
+ 177 000a FFF7FEFF 		bl	trigger_setup
+ 178              	.LVL8:
+ 145:simpleserial-base.c **** 
+ 146:simpleserial-base.c ****  	/* Uncomment this to get a HELLO message for debug */
+ 147:simpleserial-base.c **** 	/*
+ 148:simpleserial-base.c **** 	putch('h');
+ 149:simpleserial-base.c **** 	putch('e');
+ 150:simpleserial-base.c **** 	putch('l');
+ 151:simpleserial-base.c **** 	putch('l');
+ 152:simpleserial-base.c **** 	putch('o');
+ 153:simpleserial-base.c **** 	putch('\n');
+ 154:simpleserial-base.c **** 	*/
+ 155:simpleserial-base.c **** 
+ 156:simpleserial-base.c **** 	simpleserial_init();
+ 179              		.loc 1 156 2 view .LVU32
+ 180 000e FFF7FEFF 		bl	simpleserial_init
+ 181              	.LVL9:
+ 157:simpleserial-base.c **** #if SS_VER != SS_VER_2_1
+ 158:simpleserial-base.c **** 	simpleserial_addcmd('p', 16, get_pt);
+ 182              		.loc 1 158 2 view .LVU33
+ 183 0012 1021     		movs	r1, #16
+ 184 0014 084A     		ldr	r2, .L12
+ 185 0016 7020     		movs	r0, #112
+ 186 0018 FFF7FEFF 		bl	simpleserial_addcmd
+ 187              	.LVL10:
+ 159:simpleserial-base.c **** 	simpleserial_addcmd('k', 16, get_key);
+ 188              		.loc 1 159 2 view .LVU34
+ 189 001c 1021     		movs	r1, #16
+ 190 001e 074A     		ldr	r2, .L12+4
+ 191 0020 6B20     		movs	r0, #107
+ 192 0022 FFF7FEFF 		bl	simpleserial_addcmd
+ 193              	.LVL11:
+ 160:simpleserial-base.c **** 	simpleserial_addcmd('x', 0, reset);
+ 194              		.loc 1 160 2 view .LVU35
+ 195 0026 0021     		movs	r1, #0
+ 196 0028 7820     		movs	r0, #120
+ 197 002a 054A     		ldr	r2, .L12+8
+ 198 002c FFF7FEFF 		bl	simpleserial_addcmd
+ 199              	.LVL12:
+ 200              	.L11:
+ 161:simpleserial-base.c **** #else
+ 162:simpleserial-base.c ****     simpleserial_addcmd(0x01, 16, aes);
+ 163:simpleserial-base.c **** 
+ 164:simpleserial-base.c **** #endif
+ 165:simpleserial-base.c **** 	while(1)
+ 201              		.loc 1 165 2 view .LVU36
+ 166:simpleserial-base.c **** 		simpleserial_get();
+ 202              		.loc 1 166 3 discriminator 1 view .LVU37
+ 203 0030 FFF7FEFF 		bl	simpleserial_get
+ 204              	.LVL13:
+ 165:simpleserial-base.c **** 		simpleserial_get();
+ 205              		.loc 1 165 7 view .LVU38
+ 206 0034 FCE7     		b	.L11
+ 207              	.L13:
+ 208 0036 C046     		.align	2
+ 209              	.L12:
+ 210 0038 00000000 		.word	get_pt
+ 211 003c 00000000 		.word	get_key
+ 212 0040 00000000 		.word	reset
+ 213              		.cfi_endproc
+ 214              	.LFE3:
+ 216              		.text
+ 217              	.Letext0:
+ 218              		.file 2 ".././simpleserial/simpleserial.h"
+ 219              		.file 3 ".././hal/stm32f0/stm32f0_hal.h"
+ 220              		.file 4 ".././hal/hal.h"
+ 221              		.file 5 "/usr/lib/gcc/arm-none-eabi/14.2.1/include/stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 simpleserial-base.c
+     /tmp/cccf7Xsm.s:19     .text.get_key:00000000 $t
+     /tmp/cccf7Xsm.s:25     .text.get_key:00000000 get_key
+     /tmp/cccf7Xsm.s:44     .text.get_pt:00000000 $t
+     /tmp/cccf7Xsm.s:50     .text.get_pt:00000000 get_pt
+     /tmp/cccf7Xsm.s:125    .text.get_pt:00000040 $d
+     /tmp/cccf7Xsm.s:130    .text.reset:00000000 $t
+     /tmp/cccf7Xsm.s:136    .text.reset:00000000 reset
+     /tmp/cccf7Xsm.s:150    .text.startup.main:00000000 $t
+     /tmp/cccf7Xsm.s:156    .text.startup.main:00000000 main
+     /tmp/cccf7Xsm.s:210    .text.startup.main:00000038 $d
+
+UNDEFINED SYMBOLS
+trigger_high
+trigger_low
+__aeabi_idiv
+platform_init
+init_uart
+trigger_setup
+simpleserial_init
+simpleserial_addcmd
+simpleserial_get
