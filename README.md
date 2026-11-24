@@ -30,21 +30,13 @@ El repositorio se organiza de la siguiente manera:
 .
 ├── 0.Introduccion_a_Jupyter_Notebooks.ipynb
 ├── 1.Conectando_el_Hardware.ipynb
-├── 2.Diferencias_consumo_potencia_(HARDWARE).ipynb
-├── 2.Diferencias_consumo_potencia_(PRINCIPAL).ipynb
-├── 3.Analisis_de_consumo_para_evadir_password_(HARDWARE).ipynb
-├── 3.Analisis_de_consumo_para_evadir_password_(PRINCIPAL).ipynb
+├── 2.Diferencias_consumo_potencia.ipynb
+├── 3.Analisis_de_consumo_para_evadir_password.ipynb
 ├── 4.Introduccion_a_la_inyeccion_de_fallos_por_voltaje.ipynb
 ├── Firmwares/              # Código fuente en C, headers y Makefiles para el microcontrolador víctima
 ├── Helper_Scripts/         # Cuadernos auxiliares y scripts complementarios
 └── img/                    # Diagramas, esquemas de hardware y capturas ilustrativas
 ```
-
-> [!NOTE]
-> **Convención `(HARDWARE)` y `(PRINCIPAL)`:**  
-> En las prácticas 2 y 3, el trabajo se desacopla en dos cuadernos para mantener el código modular y limpio:
-> - **`(HARDWARE)`**: Contiene la inicialización del osciloscopio, la selección de la plataforma (`CWNANO`), la compilación y carga del firmware en el target, y la definición de las funciones de captura de trazas.
-> - **`(PRINCIPAL)`**: Es el cuaderno de trabajo del estudiante. Ejecuta internamente el cuaderno `(HARDWARE)` al inicio mediante la directiva `%run` y se concentra en la lógica de análisis de trazas, graficado, algoritmos de detección y explotación de la vulnerabilidad.
 
 ---
 
@@ -81,7 +73,7 @@ A continuación se detallan los objetivos pedagógicos y contenidos técnicos de
 ---
 
 ### Práctica 2: Diferencias de Consumo de Potencia entre Instrucciones
-📁 **Archivos:** `2.Diferencias_consumo_potencia_(HARDWARE).ipynb` y `2.Diferencias_consumo_potencia_(PRINCIPAL).ipynb`
+📁 **Archivos:** `2.Diferencias_consumo_potencia.ipynb`
 
 * **Objetivo general:** Comprender los fundamentos físicos del Análisis Simple de Potencia (SPA - *Simple Power Analysis*), observando cómo las instrucciones ejecutadas por la CPU generan variaciones mensurables en el consumo eléctrico.
 * **Objetivos específicos:**
@@ -96,7 +88,7 @@ A continuación se detallan los objetivos pedagógicos y contenidos técnicos de
 ---
 
 ### Práctica 3: Análisis de Consumo para Evadir Contraseña
-📁 **Archivos:** `3.Analisis_de_consumo_para_evadir_password_(HARDWARE).ipynb` y `3.Analisis_de_consumo_para_evadir_password_(PRINCIPAL).ipynb`
+📁 **Archivos:** `3.Analisis_de_consumo_para_evadir_password.ipynb`
 
 * **Objetivo general:** Explotar fugas de información por canales laterales de tiempo y potencia (*Timing & Power Analysis*) para vulnerar un mecanismo de autenticación por contraseña.
 * **Objetivos específicos:**
@@ -162,8 +154,8 @@ A continuación se detallan los objetivos pedagógicos y contenidos técnicos de
 4. **Secuencia de realización recomendada:**
    * Comienza por `0.Introduccion_a_Jupyter_Notebooks.ipynb` para familiarizarte con las herramientas interactivas.
    * Continúa con `1.Conectando_el_Hardware.ipynb` para verificar la detección de la placa, la compilación de firmwares y la comunicación serie.
-   * Abre `2.Diferencias_consumo_potencia_(PRINCIPAL).ipynb` para estudiar el Análisis Simple de Potencia.
-   * Abre `3.Analisis_de_consumo_para_evadir_password_(PRINCIPAL).ipynb` para llevar a cabo el ataque diferencial contra la comprobación de contraseña.
+   * Abre `2.Diferencias_consumo_potencia.ipynb` para estudiar el Análisis Simple de Potencia.
+   * Abre `3.Analisis_de_consumo_para_evadir_password.ipynb` para llevar a cabo el ataque diferencial contra la comprobación de contraseña.
    * Abre `4.Introduccion_a_la_inyeccion_de_fallos_por_voltaje.ipynb` para realizar las prácticas de *Voltage Glitching*.
 
 > [!IMPORTANT]
@@ -183,10 +175,8 @@ A continuación se detalla la correspondencia con los materiales originales del 
 | :--- | :--- | :--- |
 | **`0.Introduccion_a_Jupyter_Notebooks.ipynb`** | `0 - Introduction to Jupyter Notebooks.ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/0%20-%20Introduction%20to%20Jupyter%20Notebooks.ipynb) |
 | **`1.Conectando_el_Hardware.ipynb`** | `1 - Connecting to Hardware.ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/1%20-%20Connecting%20to%20Hardware.ipynb) |
-| **`2.Diferencias_consumo_potencia_(HARDWARE).ipynb`** | `courses/sca101/Lab 2_1A - Instruction Power Differences (HARDWARE).ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1A%20-%20Instruction%20Power%20Differences%20(HARDWARE).ipynb) |
-| **`2.Diferencias_consumo_potencia_(PRINCIPAL).ipynb`** | `courses/sca101/Lab 2_1A - Instruction Power Differences (MAIN).ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1A%20-%20Instruction%20Power%20Differences%20(MAIN).ipynb) |
-| **`3.Analisis_de_consumo_para_evadir_password_(HARDWARE).ipynb`** | `courses/sca101/Lab 2_1B - Power Analysis for Password Bypass (HARDWARE).ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1B%20-%20Power%20Analysis%20for%20Password%20Bypass%20(HARDWARE).ipynb) |
-| **`3.Analisis_de_consumo_para_evadir_password_(PRINCIPAL).ipynb`** | `courses/sca101/Lab 2_1B - Power Analysis for Password Bypass (MAIN).ipynb` | [Ver original](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1B%20-%20Power%20Analysis%20for%20Password%20Bypass%20(MAIN).ipynb) |
+| **`2.Diferencias_consumo_potencia.ipynb`** | `courses/sca101/Lab 2_1A - Instruction Power Differences (HARDWARE).ipynb` <br>+ `courses/sca101/Lab 2_1A - Instruction Power Differences (MAIN).ipynb` | [2_1A_HARDWARE](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1A%20-%20Instruction%20Power%20Differences%20(HARDWARE).ipynb) <br> [2_1A_MAIN](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1A%20-%20Instruction%20Power%20Differences%20(MAIN).ipynb) |
+| **`3.Analisis_de_consumo_para_evadir_password.ipynb`** | `courses/sca101/Lab 2_1B - Power Analysis for Password Bypass (HARDWARE).ipynb` <br>+ `courses/sca101/Lab 2_1B - Power Analysis for Password Bypass (MAIN).ipynb` | [2_1B_HARDWARE](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1B%20-%20Power%20Analysis%20for%20Password%20Bypass%20(HARDWARE).ipynb) <br> [2_1B_MAIN](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/sca101/Lab%202_1B%20-%20Power%20Analysis%20for%20Password%20Bypass%20(MAIN).ipynb) |
 | **`4.Introduccion_a_la_inyeccion_de_fallos_por_voltaje.ipynb`** | `courses/fault101/Fault 2_1 - Introduction to Voltage Glitching.ipynb` <br>+ `courses/fault101/Fault 2_2 - Voltage Glitching to Bypass Password.ipynb` | [Fault 2_1](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/fault101/Fault%202_1%20-%20Introduction%20to%20Voltage%20Glitching.ipynb) <br> [Fault 2_2](https://github.com/newaetech/chipwhisperer-jupyter/blob/main/courses/fault101/Fault%202_2%20-%20Voltage%20Glitching%20to%20Bypass%20Password.ipynb) |
 
 ### Recursos y Enlaces Adicionales
